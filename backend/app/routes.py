@@ -1,5 +1,6 @@
 import requests
 from flask import render_template, request, jsonify
+from flask_cors import CORS
 from main import app
 from config import (
     API_CREDENTIALS,
