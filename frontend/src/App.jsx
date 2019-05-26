@@ -11,11 +11,6 @@ const getBoardLists = () => {
   return axios.get(boardListURL).then(response => response.data)
 }
 
-const getBoardHistory = () => {
-  const getBoardHistoryURL = `${API_URL}/cards`;
-  return axios.post(getBoardHistoryURL).then(response => response.data)
-}
-
 class App extends React.Component {
   state = {
     boardLists: [],

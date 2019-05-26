@@ -1,17 +1,29 @@
 import React, { Component } from 'react'
-import { List, Container, Header, Segment } from 'semantic-ui-react'
+import axios from 'axios'
+import { List, Container, Header, Segment, Button } from 'semantic-ui-react'
 
+const API_URL = 'http://127.0.0.1:5000'
 
+const getBoardHistory = () => {
+  return axios.get(`${API_URL}/cards`).then(response => response.data)
+}
 export default class BoardHistory extends Component {
+  state = {
+    boardHistory: [],
+  }
+  handleClick = () => {
+    getBoardHistory().then(history => { this.setState({ boardHistory: history }) })
+  }
+
   render() {
     return (
         <Container text>
-            <Header> This task tracks all card movements on the Pizza Project board</Header>
+            <Header> This task tracks card movement history on the Pizza Project board</Header>
+            <Button onClick={this.handleClick}>Get updated list</Button>
             <Segment raised>
-              <List bulleted>
-                  <List.Item>Card "Study" moved from to do to doing</List.Item>
-                  <List.Item>Card "Lunch" moved from to do to doing</List.Item>
-              </List>
+            {this.state.boardHistory && this.state.boardHistory.map(entry => (
+              <List.Item key={entry}>{entry}</List.Item>
+            ))}
             </Segment>
         </Container>
     )

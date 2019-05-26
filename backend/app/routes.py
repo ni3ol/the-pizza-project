@@ -7,6 +7,7 @@ from config import (
     PIZZA_PROJECT_BOARD_ID,
     TO_DO_LIST_ID
 )
+import cards
 
 
 @app.route('/api/boardlists')
@@ -43,5 +44,12 @@ def on_card_update():
         card_name = entities['card']['text']
         list_before = entities['listBefore']['text']
         list_after = entities['listAfter']['text']
-        print(f'Card "{card_name}" moved from {list_before} to {list_after}')
+        card = cards.update_card(card_name, list_before, list_after)
+        print(card)
+        cards.add_card_to_history(card)
     return 'Ok', 200
+
+
+@app.route('/cards', methods=['GET'])
+def get_cards():
+    return jsonify(cards.get_card_history())
