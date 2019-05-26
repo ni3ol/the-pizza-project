@@ -6,6 +6,16 @@ import NavigationBar from './NavigationBar.jsx'
 
 const API_URL = 'http://127.0.0.1:5000'
 
+const getBoardLists = () => {
+  const boardListURL = `${API_URL}/api/boardlists`;
+  return axios.get(boardListURL).then(response => response.data)
+}
+
+const getBoardHistory = () => {
+  const getBoardHistoryURL = `${API_URL}/cards`;
+  return axios.post(getBoardHistoryURL).then(response => response.data)
+}
+
 class App extends React.Component {
   state = {
     boardLists: [],
@@ -13,19 +23,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const boardListURL = `${API_URL}/api/boardlists`;
-    axios.get(boardListURL).then(response => response.data)
-    .then((data) => {
-      this.setState({ boardLists: data })
-      console.log(this.state.boardLists)
-     })
+    getBoardLists().then(lists => { this.setState({ boardLists: lists }) })
+    
   }
 
   render() {
     return (
       <div>
         <Header>The Pizza Project</Header>
-        <NavigationBar boardLists={this.state.boardLists}/>
+        <NavigationBar boardLists={this.state.boardLists} />
       </div>
     );
   }

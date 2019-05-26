@@ -1,6 +1,5 @@
 import requests
 from flask import render_template, request, jsonify
-from flask_cors import CORS
 from main import app
 from config import (
     API_CREDENTIALS,
@@ -22,16 +21,12 @@ def get_lists():
     return flask_response
 
 
-@app.route('/cards')
-def create_card():
-    return render_template('create_card.html')
-
-
 @app.route('/api/cards', methods=['POST'])
 def post_card():
     if request.method == 'POST':
-        result = request.form['card']
-        payload = {'name': result,
+        card = request.get_json()['card']
+        print(card)
+        payload = {'name': card,
                    'idList': TO_DO_LIST_ID, **API_CREDENTIALS}
         requests.post(
             f'{TRELLO_API_BASE_URL}/cards', params=payload
