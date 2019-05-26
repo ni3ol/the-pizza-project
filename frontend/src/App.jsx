@@ -8,16 +8,16 @@ const API_URL = 'http://127.0.0.1:5000'
 
 class App extends React.Component {
   state = {
-    board_lists: [],
-    board_history: []
+    boardLists: [],
+    boardHistory: []
   }
 
   componentDidMount() {
-    const board_lists_url = `${API_URL}/api/boardlists`;
-    axios.get(board_lists_url).then(response => response.data)
+    const boardListURL = `${API_URL}/api/boardlists`;
+    axios.get(boardListURL).then(response => response.data)
     .then((data) => {
-      this.setState({ board_lists: data })
-      console.log(this.state.board_lists)
+      this.setState({ boardLists: data })
+      console.log(this.state.boardLists)
      })
   }
 
@@ -25,7 +25,7 @@ class App extends React.Component {
     return (
       <div>
         <Header>The Pizza Project</Header>
-        <NavigationBar board_lists={this.state.board_lists}/>
+        <NavigationBar boardLists={this.state.boardLists}/>
       </div>
     );
   }

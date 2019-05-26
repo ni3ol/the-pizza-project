@@ -13,7 +13,7 @@ export default class NavigationBar extends Component {
   renderContentsForActiveItem = (activeItem) => {
     if (activeItem === 'Board Lists') {
       console.log(this.props.board_lists)
-      return <BoardLists lists={this.props.board_lists}/>
+      return <BoardLists lists={this.props.boardLists}/>
     }
     if (activeItem === 'Create Card') {
       return <CreateCard/>
