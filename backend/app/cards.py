@@ -11,4 +11,3 @@ def add_card_to_history(card):
 
 def get_card_history():
     return card_history
-
