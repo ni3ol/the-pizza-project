@@ -3,8 +3,6 @@ import { Header, Segment, Icon } from 'semantic-ui-react';
 import NavigationBar from './components/NavigationBar.jsx'
 import { backendClient } from './client/clients.js'
 
-
-
 class App extends React.Component {
   state = {
     boardLists: [],

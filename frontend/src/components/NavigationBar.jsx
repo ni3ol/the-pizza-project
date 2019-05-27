@@ -4,7 +4,6 @@ import BoardLists from './BoardLists.jsx'
 import CreateCard from './CreateCard.jsx'
 import BoardHistory from './BoardHistory.jsx'
 
-
 export default class NavigationBar extends Component {
   state = { activeItem: 'Board Lists' }
 

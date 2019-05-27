@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import {Container, Header, Divider, Card } from 'semantic-ui-react'
-
-
 export default class BoardLists extends Component {
   render() {
     const lists = this.props.lists;
