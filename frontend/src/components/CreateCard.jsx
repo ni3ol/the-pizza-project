@@ -22,7 +22,7 @@ export default class CreateCard extends Component {
   render() {
     return (
       <Container>
-        <Header> This task uses the Trello API to post a card to the to do list on the Pizza Project Board</Header>
+        <Header textAlign='center'> This task uses the Trello API to post a card to the to do list on the Pizza Project Board</Header>
         <Segment raised>
           <Form onSubmit={this.handleSubmit}>
             <Form.Field>

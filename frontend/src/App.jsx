@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Segment } from 'semantic-ui-react';
+import { Header, Segment, Icon } from 'semantic-ui-react';
 import NavigationBar from './components/NavigationBar.jsx'
 import { backendClient } from './client/clients.js'
 
@@ -19,7 +19,10 @@ class App extends React.Component {
     return (
       <div>
         <Segment inverted color='blue' padded='very'>
-          <Header size='huge' color='black' textAlign='center'>The Pizza Project</Header>
+          <Header as='h2' icon textAlign='center'>
+            <Icon name='trello' circular />
+            <Header.Content>The Pizza Project</Header.Content>
+          </Header>
         </Segment>
         <NavigationBar boardLists={this.state.boardLists} />
       </div>

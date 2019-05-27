@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { List, Container, Header, Divider, Button } from 'semantic-ui-react'
+import { List, Container, Header, Divider, Button, Icon, Segment } from 'semantic-ui-react'
 import { backendClient } from '../client/clients.js'
 
 export default class BoardHistory extends Component {
@@ -12,12 +12,15 @@ export default class BoardHistory extends Component {
 
   render() {
     return (
-        <Container text>
-            <Header> This task tracks card movement history on the Pizza Project board</Header>
+        <Container>
+            <Header textAlign='center'> This task tracks card movement history on the Pizza Project board</Header>
             <Divider/>
-            <Button primary onClick={this.handleClick}>Get updated list</Button>
+            <Button fluid primary onClick={this.handleClick}>Get updated list</Button>
             {this.state.boardHistory && this.state.boardHistory.map(entry => (
-              <List.Item key={entry}>{entry}</List.Item>
+              <Segment text>
+                <Icon circular name='paper plane' />
+                <List.Item key={entry}>{entry}</List.Item>
+              </Segment>
             ))}
         </Container>
     )
