@@ -1,3 +1,4 @@
+import os
 import requests
 from flask import Flask
 from flask_cors import CORS
@@ -15,7 +16,8 @@ TOKEN = API_CREDENTIALS['token']
 def create_webhook():
     payload = {
         'key': API_CREDENTIALS['key'],
-        'callbackURL': 'http://89c9d538.ngrok.io/webhooks/cards',
+        # 'callbackURL': 'http://89c9d538.ngrok.io/webhooks/cards',
+        'callbackURL': os.environ["NGROK_URL"],
         'idModel': '5ce2ae27e2de5319951360e0',
         'description': 'Webhook to watch board movement'
     }

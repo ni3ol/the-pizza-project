@@ -20,7 +20,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./frontsend/src:/usr/src/app/src
+      - ./frontend/src:/usr/src/app/src
       - ./frontend/public:/usr/src/app/public
     links:
       - "backend:backend"
