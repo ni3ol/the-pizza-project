@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Container, Segment, Header, Button } from 'semantic-ui-react'
-import axios from 'axios'
-
-const API_URL = 'http://127.0.0.1:5000'
-
-const createCard = (card) => {
-  return axios.post(`${API_URL}/api/cards`, { card })
-}
+import { backendClient } from './clients.js'
 
 export default class CreateCard extends Component {
   constructor(props) {
@@ -22,7 +16,7 @@ export default class CreateCard extends Component {
     const card = this.state.card;
     alert('The following card was added TODO: ' + card);
     event.preventDefault();
-    createCard(card).then(() => {this.setState({submitted: true})})
+    backendClient.createCard(card).then(() => {this.setState({submitted: true})})
   }
 
   render() {
@@ -37,8 +31,7 @@ export default class CreateCard extends Component {
             </Form.Field>
             <Button type='submit'>Submit</Button>
           </Form>
-          {this.state.submitted && (<div>Yay</div>)}
-
+          {this.state.submitted && (<div>Card submitted successfully.</div>)}
         </Segment>
       </Container>
     )

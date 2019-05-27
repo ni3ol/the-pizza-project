@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { List, Container, Header, Segment, Button } from 'semantic-ui-react'
+import { backendClient } from './clients.js'
 
-const API_URL = 'http://127.0.0.1:5000'
-
-const getBoardHistory = () => {
-  return axios.get(`${API_URL}/cards`).then(response => response.data)
-}
 export default class BoardHistory extends Component {
   state = {
     boardHistory: [],
   }
   handleClick = () => {
-    getBoardHistory().then(history => { this.setState({ boardHistory: history }) })
+    backendClient.getBoardHistory().then(history => { this.setState({ boardHistory: history }) })
   }
 
   render() {
