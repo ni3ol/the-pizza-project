@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { List, Container, Header, Divider, Button } from 'semantic-ui-react'
-import { backendClient } from './clients.js'
+import { backendClient } from '../client/clients.js'
 
 export default class BoardHistory extends Component {
   state = {

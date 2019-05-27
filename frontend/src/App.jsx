@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Segment } from 'semantic-ui-react';
-import NavigationBar from './NavigationBar.jsx'
-import { backendClient } from './clients.js'
+import NavigationBar from './components/NavigationBar.jsx'
+import { backendClient } from './client/clients.js'
 
 
 

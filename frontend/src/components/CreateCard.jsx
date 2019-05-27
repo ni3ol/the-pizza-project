@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Container, Segment, Header, Button } from 'semantic-ui-react'
-import { backendClient } from './clients.js'
+import { backendClient } from '../client/clients'
 
 export default class CreateCard extends Component {
   constructor(props) {
