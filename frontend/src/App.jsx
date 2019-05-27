@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
+import { Header, Segment } from 'semantic-ui-react';
 import NavigationBar from './NavigationBar.jsx'
 import { backendClient } from './clients.js'
 
@@ -18,7 +18,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header>The Pizza Project</Header>
+        <Segment inverted color='blue' padded='very'>
+          <Header size='huge' color='black' textAlign='center'>The Pizza Project</Header>
+        </Segment>
         <NavigationBar boardLists={this.state.boardLists} />
       </div>
     );

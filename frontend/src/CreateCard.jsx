@@ -29,7 +29,7 @@ export default class CreateCard extends Component {
               <label>Card</label>
               <input placeholder='Finish work' value={this.state.card} onChange={this.handleChange} />
             </Form.Field>
-            <Button type='submit'>Submit</Button>
+            <Button primary type='submit'>Submit</Button>
           </Form>
           {this.state.submitted && (<div>Card submitted successfully.</div>)}
         </Segment>
