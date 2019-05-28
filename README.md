@@ -24,14 +24,13 @@ If I had more time I would definitely dockerise it completely with NGROK. I woul
 
 ## Running the Project
 
-### Locally
+## Locally
 
 - First you need to download NGROK from `https://ngrok.com/download`. The steps are simple.
 - Start NGROK in terminal: `./ngrok http 5000`
-- export your forwarding URL (eg. `http://92832de0.ngrok.io`): `export NGROK_URL=[forwarding_url]`
-- Activate pyvenv: `pyenv activate pizza_project` and then activate: `source [path_to_.pyenv/versions/pizza_project/bin/activate]`
+- Activate pyvenv in backend: `pyenv virtualenv 3.6.5 pizza_project` and then activate: `source [path_to_.pyenv/versions/pizza_project/bin/activate]`
 - In backend: `pip install -r requirements.txt`
-- Create the webhook: `python -i app/main.py` and call the function `create_webhook()`
+- Create the webhook: `python -i app/main.py` and call the function `create_webhook([your_NGROK_forwarding_URL])`
 - In frontend: `npm install`
 - Start up the project: `npm start` (frontend) `flask run` (backend)
 - Navigate to `http://localhost:3000`.
