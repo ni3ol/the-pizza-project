@@ -24,7 +24,7 @@ If I had more time I would definitely dockerise it completely with NGROK. I woul
 
 ## Running the Project
 
-## Locally
+### Locally
 
 - First you need to download NGROK from `https://ngrok.com/download`. The steps are simple.
 - Start NGROK in terminal: `./ngrok http 5000`
